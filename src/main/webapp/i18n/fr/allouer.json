@@ -1,0 +1,28 @@
+
+{
+    "primempdApp": {
+        "allouer" : {
+            "home": {
+                "title": "Allouers",
+                "createLabel": "Créer un nouveau Allouer",
+                "createOrEditLabel": "Créer ou éditer un Allouer"
+            },
+            "created": "Un nouveau Allouer a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Allouer avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Allouer avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Allouer {{ id }} ?"
+            },
+            "detail": {
+                "title": "Allouer"
+            },
+            "note": "Note",
+            "nombreJours": "Nombre Jours",
+            "montant": "Montant",
+            "agent": "Agent",
+            "prime": "Prime",
+            "annee": "Annee",
+            "trimestre": "Trimestre"
+        }
+    }
+}

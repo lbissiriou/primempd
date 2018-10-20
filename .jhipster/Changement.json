@@ -1,0 +1,40 @@
+{
+    "name": "Changement",
+    "fields": [
+        {
+            "fieldName": "dateDebut",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "datefin",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "agent",
+            "otherEntityName": "agent",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "changement"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "corps",
+            "otherEntityName": "corps",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "changement"
+        }
+    ],
+    "changelogDate": "20181020162749",
+    "entityTableName": "changement",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

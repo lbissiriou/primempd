@@ -1,0 +1,19 @@
+{
+    "name": "Fonction",
+    "fields": [
+        {
+            "fieldName": "titre",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181020162745",
+    "entityTableName": "fonction",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

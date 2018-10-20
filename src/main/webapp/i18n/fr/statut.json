@@ -1,0 +1,12 @@
+{
+    "primempdApp": {
+        "Statut" : {
+            "null": "",
+            "ACE": "ACE",
+            "APE": "APE",
+            "CDD": "CDD",
+            "OCCASIONNEL": "OCCASIONNEL",
+            "CONVENTIONNE": "CONVENTIONNE"
+        }
+    }
+}

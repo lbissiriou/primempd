@@ -1,0 +1,25 @@
+
+{
+    "primempdApp": {
+        "changement" : {
+            "home": {
+                "title": "Changements",
+                "createLabel": "Créer un nouveau Changement",
+                "createOrEditLabel": "Créer ou éditer un Changement"
+            },
+            "created": "Un nouveau Changement a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Changement avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Changement avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Changement {{ id }} ?"
+            },
+            "detail": {
+                "title": "Changement"
+            },
+            "dateDebut": "Date Debut",
+            "datefin": "Datefin",
+            "agent": "Agent",
+            "corps": "Corps"
+        }
+    }
+}

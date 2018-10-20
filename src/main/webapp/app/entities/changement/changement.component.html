@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="primempdApp.changement.home.title">Changements</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-changement" [routerLink]="['/changement/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="primempdApp.changement.home.createLabel">
+            Create new Changement
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="changements">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="primempdApp.changement.dateDebut">Date Debut</span></th>
+            <th><span jhiTranslate="primempdApp.changement.datefin">Datefin</span></th>
+            <th><span jhiTranslate="primempdApp.changement.agent">Agent</span></th>
+            <th><span jhiTranslate="primempdApp.changement.corps">Corps</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let changement of changements ;trackBy: trackId">
+                <td><a [routerLink]="['/changement', changement.id, 'view' ]">{{changement.id}}</a></td>
+                <td>{{changement.dateDebut | date:'medium'}}</td>
+                <td>{{changement.datefin | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="changement.agent">
+                        <a [routerLink]="['../agent', changement.agent?.id, 'view' ]" >{{changement.agent?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="changement.corps">
+                        <a [routerLink]="['../corps', changement.corps?.id, 'view' ]" >{{changement.corps?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/changement', changement.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/changement', changement.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'changement/'+ changement.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

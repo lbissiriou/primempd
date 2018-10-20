@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-allouer-heading" jhiTranslate="primempdApp.allouer.home.createOrEditLabel">Create or edit a Allouer</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!allouer.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="allouer.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.allouer.note" for="field_note">Note</label>
+                    <input type="number" class="form-control" name="note" id="field_note"
+                        [(ngModel)]="allouer.note" min="0" jhiMin="0" max="20" jhiMax="20"/>
+                    <div [hidden]="!(editForm.controls.note?.dirty && editForm.controls.note?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.note?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.note?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 20 }">
+                            This field cannot be more than 20.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.note?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.allouer.nombreJours" for="field_nombreJours">Nombre Jours</label>
+                    <input type="number" class="form-control" name="nombreJours" id="field_nombreJours"
+                        [(ngModel)]="allouer.nombreJours" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.allouer.montant" for="field_montant">Montant</label>
+                    <input type="number" class="form-control" name="montant" id="field_montant"
+                        [(ngModel)]="allouer.montant" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.allouer.agent" for="field_agent">Agent</label>
+                    <select class="form-control" id="field_agent" name="agent" [(ngModel)]="allouer.agent">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="agentOption.id === allouer.agent?.id ? allouer.agent : agentOption" *ngFor="let agentOption of agents; trackBy: trackAgentById">{{agentOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.allouer.prime" for="field_prime">Prime</label>
+                    <select class="form-control" id="field_prime" name="prime" [(ngModel)]="allouer.prime">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="primeOption.id === allouer.prime?.id ? allouer.prime : primeOption" *ngFor="let primeOption of primes; trackBy: trackPrimeById">{{primeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.allouer.annee" for="field_annee">Annee</label>
+                    <select class="form-control" id="field_annee" name="annee" [(ngModel)]="allouer.annee">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="anneeOption.id === allouer.annee?.id ? allouer.annee : anneeOption" *ngFor="let anneeOption of annees; trackBy: trackAnneeById">{{anneeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.allouer.trimestre" for="field_trimestre">Trimestre</label>
+                    <select class="form-control" id="field_trimestre" name="trimestre" [(ngModel)]="allouer.trimestre">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="trimestreOption.id === allouer.trimestre?.id ? allouer.trimestre : trimestreOption" *ngFor="let trimestreOption of trimestres; trackBy: trackTrimestreById">{{trimestreOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

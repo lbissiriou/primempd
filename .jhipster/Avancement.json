@@ -1,0 +1,40 @@
+{
+    "name": "Avancement",
+    "fields": [
+        {
+            "fieldName": "dateDebut",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateFin",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "grade",
+            "otherEntityName": "grade",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "avancement"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "agent",
+            "otherEntityName": "agent",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "avancement"
+        }
+    ],
+    "changelogDate": "20181020162748",
+    "entityTableName": "avancement",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

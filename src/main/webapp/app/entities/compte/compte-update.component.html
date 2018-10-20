@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-compte-heading" jhiTranslate="primempdApp.compte.home.createOrEditLabel">Create or edit a Compte</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!compte.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="compte.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.compte.numeroCompte" for="field_numeroCompte">Numero Compte</label>
+                    <input type="text" class="form-control" name="numeroCompte" id="field_numeroCompte"
+                        [(ngModel)]="compte.numeroCompte" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.compte.banque" for="field_banque">Banque</label>
+                    <select class="form-control" id="field_banque" name="banque" [(ngModel)]="compte.banque">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="banqueOption.id === compte.banque?.id ? compte.banque : banqueOption" *ngFor="let banqueOption of banques; trackBy: trackBanqueById">{{banqueOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.compte.agent" for="field_agent">Agent</label>
+                    <select class="form-control" id="field_agent" name="agent" [(ngModel)]="compte.agent" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="agentOption.id === compte.agent?.id ? compte.agent : agentOption" *ngFor="let agentOption of agents; trackBy: trackAgentById">{{agentOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

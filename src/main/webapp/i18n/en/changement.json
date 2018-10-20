@@ -1,0 +1,25 @@
+
+{
+    "primempdApp": {
+        "changement" : {
+            "home": {
+                "title": "Changements",
+                "createLabel": "Create a new Changement",
+                "createOrEditLabel": "Create or edit a Changement"
+            },
+            "created": "A new Changement is created with identifier {{ param }}",
+            "updated": "A Changement is updated with identifier {{ param }}",
+            "deleted": "A Changement is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Changement {{ id }}?"
+            },
+            "detail": {
+                "title": "Changement"
+            },
+            "dateDebut": "Date Debut",
+            "datefin": "Datefin",
+            "agent": "Agent",
+            "corps": "Corps"
+        }
+    }
+}

@@ -1,0 +1,39 @@
+
+{
+    "primempdApp": {
+        "agent" : {
+            "home": {
+                "title": "Agents",
+                "createLabel": "Créer un nouveau Agent",
+                "createOrEditLabel": "Créer ou éditer un Agent"
+            },
+            "created": "Un nouveau Agent a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Agent avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Agent avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Agent {{ id }} ?"
+            },
+            "detail": {
+                "title": "Agent"
+            },
+            "matricule": "Matricule",
+            "nom": "Nom",
+            "prenoms": "Prenoms",
+            "dateNaiss": "Date Naiss",
+            "lieuNaiss": "Lieu Naiss",
+            "contact": "Contact",
+            "email": "Email",
+            "adresse": "Adresse",
+            "datePriseServ": "Date Prise Serv",
+            "situationMatrim": "Situation Matrim",
+            "nombreEnfts": "Nombre Enfts",
+            "statut": "Statut",
+            "fonctionActuelle": "Fonction Actuelle",
+            "compteactuel": "Compteactuel",
+            "directionactuelle": "Directionactuelle",
+            "gradeactuel": "Gradeactuel",
+            "corpsactuel": "Corpsactuel",
+            "comptes": "Comptes"
+        }
+    }
+}

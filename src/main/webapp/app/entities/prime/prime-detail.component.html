@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="prime">
+            <h2><span jhiTranslate="primempdApp.prime.detail.title">Prime</span> {{prime.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="primempdApp.prime.libellePrime">Libelle Prime</span></dt>
+                <dd>
+                    <span>{{prime.libellePrime}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.prime.tauxMensuel">Taux Mensuel</span></dt>
+                <dd>
+                    <span>{{prime.tauxMensuel}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.prime.typePrime">Type Prime</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'primempdApp.Typeprime.' + prime.typePrime}}">{{prime.typePrime}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/prime', prime.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

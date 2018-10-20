@@ -1,0 +1,23 @@
+{
+    "name": "Trimestre",
+    "fields": [
+        {
+            "fieldName": "codeTrimestre",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "trimestre",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181020162742",
+    "entityTableName": "trimestre",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

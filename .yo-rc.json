@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.mpd.primempd",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "5.3.1",
+    "applicationType": "monolith",
+    "baseName": "primempd",
+    "packageName": "com.mpd.primempd",
+    "packageFolder": "com/mpd/primempd",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "N2M2Yjc3OWFmY2FlOTc5MzkzOTE4ZmNkM2JkOTNlMTVhNjM3ZGFiM2YwOTI1NWJlZWJkMWRlNDBiYzk2NzFjZGYzMjc2MGNlOWEyMGY3ZWVlYzU5Y2I3YTA5NmFmYzZjYTExOGNlY2UzMzUyNzJlMDQ3OTM3MDkxMGUzMzMzZjc=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "gatling",
+      "cucumber",
+      "protractor"
+    ],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": [
+      "fr",
+      "en"
+    ]
+  }
+}

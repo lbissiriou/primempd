@@ -1,0 +1,19 @@
+{
+    "name": "Annee",
+    "fields": [
+        {
+            "fieldName": "codeAnnee",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181020162743",
+    "entityTableName": "annee",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

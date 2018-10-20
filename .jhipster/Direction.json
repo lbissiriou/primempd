@@ -1,0 +1,23 @@
+{
+    "name": "Direction",
+    "fields": [
+        {
+            "fieldName": "sigle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "libelleDirection",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181020162739",
+    "entityTableName": "direction",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

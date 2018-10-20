@@ -1,0 +1,172 @@
+entity Banque {
+    codeBanque String,
+    nomBanque String,
+    siegeSocial String,
+    telephone String,
+    fax String,
+    email String
+}
+
+entity Compte {
+    numeroCompte String
+}
+
+entity Grade { 
+    grade String,
+    indiceBase Integer 
+}
+
+entity Direction {
+    sigle String,
+    libelleDirection String
+}
+
+entity Corps {
+    libelleCorps String,
+}
+
+entity Prime { 
+    libellePrime String,
+    tauxMensuel Double,
+    typePrime Typeprime,   
+}
+
+enum Typeprime {
+    MENSUELLE, TRIMESTRIELLE, SEMESTRIELLE, ANNUELLE
+    
+}
+
+entity Trimestre {
+    codeTrimestre Integer,
+    trimestre String
+}
+
+entity Annee {
+    codeAnnee Integer,
+}
+
+
+entity Agent {
+    matricule Long required,
+    nom String,
+    prenoms String,
+    dateNaiss Instant,
+    lieuNaiss String,
+    contact String,
+    email String,
+    adresse String,
+    datePriseServ Instant,
+    situationMatrim Situationmatrimoniale,
+    nombreEnfts Integer,
+    statut Statut
+    
+}
+
+entity Fonction {
+	titre String
+ 
+}
+
+entity Promotion {
+	dateDebut Instant,
+    dateFin Instant,
+
+
+}
+
+enum Situationmatrimoniale {
+	MARIE, CELIBATAIRE
+
+}
+enum Statut {
+    ACE, APE, CDD, OCCASIONNEL, CONVENTIONNE
+}
+
+entity Allouer{
+    note Double min(0) max(20),
+    nombreJours Integer,
+    montant Double
+}
+
+entity Avancement{
+    dateDebut Instant,
+    dateFin Instant
+}
+entity Changement{
+    dateDebut Instant,
+    datefin Instant
+}
+entity Affectation{
+	 dateDebut Instant,
+     dateFin Instant
+
+}
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+    	Agent{comptes} to Compte
+}
+relationship OneToOne {
+		Compte{banque} to Banque
+}
+
+relationship OneToOne {
+	Agent{fonctionActuelle} to Fonction
+
+
+}
+
+relationship OneToOne {
+    Avancement{grade} to Grade,
+    Avancement{agent} to Agent
+}
+
+relationship OneToOne {
+	Promotion{agent} to Agent,
+    Promotion{fonction} to Fonction
+
+
+}
+
+relationship OneToOne {
+	Affectation{agent} to Agent,
+    Affectation{direction} to Direction
+}
+
+relationship OneToOne {
+	Changement{agent} to Agent
+    
+}
+
+relationship OneToOne {
+    Changement{corps} to Corps
+}
+
+relationship OneToOne {
+	Allouer{agent} to Agent,
+    Allouer{prime} to Prime,
+    Allouer{annee} to Annee,
+    Allouer{trimestre} to Trimestre
+}
+
+relationship OneToOne {
+	Agent{compteactuel} to Compte
+
+
+}
+relationship OneToOne {
+	Agent{directionactuelle} to Direction
+}
+
+relationship OneToOne {
+	Agent{gradeactuel} to Grade
+}
+
+relationship OneToOne {
+	Agent{corpsactuel} to Corps
+
+}
+// Set pagination options
+paginate Agent with infinite-scroll
+paginate Agent with pagination
+// Set service options to all except few
+service all with serviceImpl

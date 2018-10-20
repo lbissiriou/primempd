@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-prime-heading" jhiTranslate="primempdApp.prime.home.createOrEditLabel">Create or edit a Prime</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!prime.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="prime.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.prime.libellePrime" for="field_libellePrime">Libelle Prime</label>
+                    <input type="text" class="form-control" name="libellePrime" id="field_libellePrime"
+                        [(ngModel)]="prime.libellePrime" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.prime.tauxMensuel" for="field_tauxMensuel">Taux Mensuel</label>
+                    <input type="number" class="form-control" name="tauxMensuel" id="field_tauxMensuel"
+                        [(ngModel)]="prime.tauxMensuel" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.prime.typePrime" for="field_typePrime">Type Prime</label>
+                    <select class="form-control" name="typePrime" [(ngModel)]="prime.typePrime" id="field_typePrime" >
+                        <option value="MENSUELLE">{{'primempdApp.Typeprime.MENSUELLE' | translate}}</option>
+                        <option value="TRIMESTRIELLE">{{'primempdApp.Typeprime.TRIMESTRIELLE' | translate}}</option>
+                        <option value="SEMESTRIELLE">{{'primempdApp.Typeprime.SEMESTRIELLE' | translate}}</option>
+                        <option value="ANNUELLE">{{'primempdApp.Typeprime.ANNUELLE' | translate}}</option>
+                    </select>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

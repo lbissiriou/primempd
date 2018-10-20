@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Agent.
+    -->
+    <changeSet id="20181020162744-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="fonction_actuelle_id"
+                                 baseTableName="agent"
+                                 constraintName="fk_agent_fonction_actuelle_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fonction"/>
+
+        <addForeignKeyConstraint baseColumnNames="compteactuel_id"
+                                 baseTableName="agent"
+                                 constraintName="fk_agent_compteactuel_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="compte"/>
+
+        <addForeignKeyConstraint baseColumnNames="directionactuelle_id"
+                                 baseTableName="agent"
+                                 constraintName="fk_agent_directionactuelle_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="direction"/>
+
+        <addForeignKeyConstraint baseColumnNames="gradeactuel_id"
+                                 baseTableName="agent"
+                                 constraintName="fk_agent_gradeactuel_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="grade"/>
+
+        <addForeignKeyConstraint baseColumnNames="corpsactuel_id"
+                                 baseTableName="agent"
+                                 constraintName="fk_agent_corpsactuel_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="corps"/>
+
+    </changeSet>
+</databaseChangeLog>

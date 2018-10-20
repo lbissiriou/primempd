@@ -1,0 +1,115 @@
+{
+    "name": "Agent",
+    "fields": [
+        {
+            "fieldName": "matricule",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prenoms",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateNaiss",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "lieuNaiss",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contact",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "adresse",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "datePriseServ",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "situationMatrim",
+            "fieldType": "Situationmatrimoniale",
+            "fieldValues": "MARIE,CELIBATAIRE"
+        },
+        {
+            "fieldName": "nombreEnfts",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "statut",
+            "fieldType": "Statut",
+            "fieldValues": "ACE,APE,CDD,OCCASIONNEL,CONVENTIONNE"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "fonctionActuelle",
+            "otherEntityName": "fonction",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "agent"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "compteactuel",
+            "otherEntityName": "compte",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "agent"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "directionactuelle",
+            "otherEntityName": "direction",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "agent"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "gradeactuel",
+            "otherEntityName": "grade",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "agent"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "corpsactuel",
+            "otherEntityName": "corps",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "agent"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "comptes",
+            "otherEntityName": "compte",
+            "otherEntityRelationshipName": "agent"
+        }
+    ],
+    "changelogDate": "20181020162744",
+    "entityTableName": "agent",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

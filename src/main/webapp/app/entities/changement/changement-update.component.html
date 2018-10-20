@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-changement-heading" jhiTranslate="primempdApp.changement.home.createOrEditLabel">Create or edit a Changement</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!changement.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="changement.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.changement.dateDebut" for="field_dateDebut">Date Debut</label>
+                    <div class="d-flex">
+                        <input id="field_dateDebut" type="datetime-local" class="form-control" name="dateDebut" [(ngModel)]="dateDebut"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.changement.datefin" for="field_datefin">Datefin</label>
+                    <div class="d-flex">
+                        <input id="field_datefin" type="datetime-local" class="form-control" name="datefin" [(ngModel)]="datefin"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.changement.agent" for="field_agent">Agent</label>
+                    <select class="form-control" id="field_agent" name="agent" [(ngModel)]="changement.agent">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="agentOption.id === changement.agent?.id ? changement.agent : agentOption" *ngFor="let agentOption of agents; trackBy: trackAgentById">{{agentOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.changement.corps" for="field_corps">Corps</label>
+                    <select class="form-control" id="field_corps" name="corps" [(ngModel)]="changement.corps">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="corpsOption.id === changement.corps?.id ? changement.corps : corpsOption" *ngFor="let corpsOption of corps; trackBy: trackCorpsById">{{corpsOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+
+{
+    "primempdApp": {
+        "corps" : {
+            "home": {
+                "title": "Corps",
+                "createLabel": "Créer un nouveau Corps",
+                "createOrEditLabel": "Créer ou éditer un Corps"
+            },
+            "created": "Un nouveau Corps a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Corps avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Corps avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Corps {{ id }} ?"
+            },
+            "detail": {
+                "title": "Corps"
+            },
+            "libelleCorps": "Libelle Corps"
+        }
+    }
+}

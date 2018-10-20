@@ -1,0 +1,101 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="agent">
+            <h2><span jhiTranslate="primempdApp.agent.detail.title">Agent</span> {{agent.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="primempdApp.agent.matricule">Matricule</span></dt>
+                <dd>
+                    <span>{{agent.matricule}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.agent.nom">Nom</span></dt>
+                <dd>
+                    <span>{{agent.nom}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.agent.prenoms">Prenoms</span></dt>
+                <dd>
+                    <span>{{agent.prenoms}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.agent.dateNaiss">Date Naiss</span></dt>
+                <dd>
+                    <span>{{agent.dateNaiss}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.agent.lieuNaiss">Lieu Naiss</span></dt>
+                <dd>
+                    <span>{{agent.lieuNaiss}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.agent.contact">Contact</span></dt>
+                <dd>
+                    <span>{{agent.contact}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.agent.email">Email</span></dt>
+                <dd>
+                    <span>{{agent.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.agent.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{agent.adresse}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.agent.datePriseServ">Date Prise Serv</span></dt>
+                <dd>
+                    <span>{{agent.datePriseServ}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.agent.situationMatrim">Situation Matrim</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'primempdApp.Situationmatrimoniale.' + agent.situationMatrim}}">{{agent.situationMatrim}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.agent.nombreEnfts">Nombre Enfts</span></dt>
+                <dd>
+                    <span>{{agent.nombreEnfts}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.agent.statut">Statut</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'primempdApp.Statut.' + agent.statut}}">{{agent.statut}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.agent.fonctionActuelle">Fonction Actuelle</span></dt>
+                <dd>
+                    <div *ngIf="agent.fonctionActuelle">
+                        <a [routerLink]="['/fonction', agent.fonctionActuelle?.id, 'view']">{{agent.fonctionActuelle?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.agent.compteactuel">Compteactuel</span></dt>
+                <dd>
+                    <div *ngIf="agent.compteactuel">
+                        <a [routerLink]="['/compte', agent.compteactuel?.id, 'view']">{{agent.compteactuel?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.agent.directionactuelle">Directionactuelle</span></dt>
+                <dd>
+                    <div *ngIf="agent.directionactuelle">
+                        <a [routerLink]="['/direction', agent.directionactuelle?.id, 'view']">{{agent.directionactuelle?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.agent.gradeactuel">Gradeactuel</span></dt>
+                <dd>
+                    <div *ngIf="agent.gradeactuel">
+                        <a [routerLink]="['/grade', agent.gradeactuel?.id, 'view']">{{agent.gradeactuel?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.agent.corpsactuel">Corpsactuel</span></dt>
+                <dd>
+                    <div *ngIf="agent.corpsactuel">
+                        <a [routerLink]="['/corps', agent.corpsactuel?.id, 'view']">{{agent.corpsactuel?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/agent', agent.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

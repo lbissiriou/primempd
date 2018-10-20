@@ -1,0 +1,66 @@
+{
+    "name": "Allouer",
+    "fields": [
+        {
+            "fieldName": "note",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 20
+        },
+        {
+            "fieldName": "nombreJours",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "montant",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "agent",
+            "otherEntityName": "agent",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "allouer"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "prime",
+            "otherEntityName": "prime",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "allouer"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "annee",
+            "otherEntityName": "annee",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "allouer"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "trimestre",
+            "otherEntityName": "trimestre",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "allouer"
+        }
+    ],
+    "changelogDate": "20181020162747",
+    "entityTableName": "allouer",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

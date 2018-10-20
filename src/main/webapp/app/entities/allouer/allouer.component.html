@@ -1,0 +1,82 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="primempdApp.allouer.home.title">Allouers</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-allouer" [routerLink]="['/allouer/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="primempdApp.allouer.home.createLabel">
+            Create new Allouer
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="allouers">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="primempdApp.allouer.note">Note</span></th>
+            <th><span jhiTranslate="primempdApp.allouer.nombreJours">Nombre Jours</span></th>
+            <th><span jhiTranslate="primempdApp.allouer.montant">Montant</span></th>
+            <th><span jhiTranslate="primempdApp.allouer.agent">Agent</span></th>
+            <th><span jhiTranslate="primempdApp.allouer.prime">Prime</span></th>
+            <th><span jhiTranslate="primempdApp.allouer.annee">Annee</span></th>
+            <th><span jhiTranslate="primempdApp.allouer.trimestre">Trimestre</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let allouer of allouers ;trackBy: trackId">
+                <td><a [routerLink]="['/allouer', allouer.id, 'view' ]">{{allouer.id}}</a></td>
+                <td>{{allouer.note}}</td>
+                <td>{{allouer.nombreJours}}</td>
+                <td>{{allouer.montant}}</td>
+                <td>
+                    <div *ngIf="allouer.agent">
+                        <a [routerLink]="['../agent', allouer.agent?.id, 'view' ]" >{{allouer.agent?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="allouer.prime">
+                        <a [routerLink]="['../prime', allouer.prime?.id, 'view' ]" >{{allouer.prime?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="allouer.annee">
+                        <a [routerLink]="['../annee', allouer.annee?.id, 'view' ]" >{{allouer.annee?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="allouer.trimestre">
+                        <a [routerLink]="['../trimestre', allouer.trimestre?.id, 'view' ]" >{{allouer.trimestre?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/allouer', allouer.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/allouer', allouer.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'allouer/'+ allouer.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

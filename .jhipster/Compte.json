@@ -1,0 +1,34 @@
+{
+    "name": "Compte",
+    "fields": [
+        {
+            "fieldName": "numeroCompte",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "banque",
+            "otherEntityName": "banque",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "compte"
+        },
+        {
+            "relationshipName": "agent",
+            "otherEntityName": "agent",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181020162737",
+    "entityTableName": "compte",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

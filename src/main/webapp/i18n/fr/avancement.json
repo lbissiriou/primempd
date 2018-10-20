@@ -1,0 +1,25 @@
+
+{
+    "primempdApp": {
+        "avancement" : {
+            "home": {
+                "title": "Avancements",
+                "createLabel": "Créer un nouveau Avancement",
+                "createOrEditLabel": "Créer ou éditer un Avancement"
+            },
+            "created": "Un nouveau Avancement a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Avancement avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Avancement avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Avancement {{ id }} ?"
+            },
+            "detail": {
+                "title": "Avancement"
+            },
+            "dateDebut": "Date Debut",
+            "dateFin": "Date Fin",
+            "grade": "Grade",
+            "agent": "Agent"
+        }
+    }
+}

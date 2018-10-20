@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="changement">
+            <h2><span jhiTranslate="primempdApp.changement.detail.title">Changement</span> {{changement.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="primempdApp.changement.dateDebut">Date Debut</span></dt>
+                <dd>
+                    <span>{{changement.dateDebut}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.changement.datefin">Datefin</span></dt>
+                <dd>
+                    <span>{{changement.datefin}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.changement.agent">Agent</span></dt>
+                <dd>
+                    <div *ngIf="changement.agent">
+                        <a [routerLink]="['/agent', changement.agent?.id, 'view']">{{changement.agent?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.changement.corps">Corps</span></dt>
+                <dd>
+                    <div *ngIf="changement.corps">
+                        <a [routerLink]="['/corps', changement.corps?.id, 'view']">{{changement.corps?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/changement', changement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

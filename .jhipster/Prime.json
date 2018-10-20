@@ -1,0 +1,28 @@
+{
+    "name": "Prime",
+    "fields": [
+        {
+            "fieldName": "libellePrime",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tauxMensuel",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "typePrime",
+            "fieldType": "Typeprime",
+            "fieldValues": "MENSUELLE,TRIMESTRIELLE,SEMESTRIELLE,ANNUELLE"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181020162741",
+    "entityTableName": "prime",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,114 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="primempdApp.agent.home.title">Agents</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-agent" [routerLink]="['/agent/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="primempdApp.agent.home.createLabel">
+            Create new Agent
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="agents">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="matricule"><span jhiTranslate="primempdApp.agent.matricule">Matricule</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nom"><span jhiTranslate="primempdApp.agent.nom">Nom</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="prenoms"><span jhiTranslate="primempdApp.agent.prenoms">Prenoms</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateNaiss"><span jhiTranslate="primempdApp.agent.dateNaiss">Date Naiss</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="lieuNaiss"><span jhiTranslate="primempdApp.agent.lieuNaiss">Lieu Naiss</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contact"><span jhiTranslate="primempdApp.agent.contact">Contact</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="email"><span jhiTranslate="primempdApp.agent.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="adresse"><span jhiTranslate="primempdApp.agent.adresse">Adresse</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="datePriseServ"><span jhiTranslate="primempdApp.agent.datePriseServ">Date Prise Serv</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="situationMatrim"><span jhiTranslate="primempdApp.agent.situationMatrim">Situation Matrim</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombreEnfts"><span jhiTranslate="primempdApp.agent.nombreEnfts">Nombre Enfts</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="statut"><span jhiTranslate="primempdApp.agent.statut">Statut</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fonctionActuelle.id"><span jhiTranslate="primempdApp.agent.fonctionActuelle">Fonction Actuelle</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="compteactuel.id"><span jhiTranslate="primempdApp.agent.compteactuel">Compteactuel</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="directionactuelle.id"><span jhiTranslate="primempdApp.agent.directionactuelle">Directionactuelle</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="gradeactuel.id"><span jhiTranslate="primempdApp.agent.gradeactuel">Gradeactuel</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="corpsactuel.id"><span jhiTranslate="primempdApp.agent.corpsactuel">Corpsactuel</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let agent of agents ;trackBy: trackId">
+                <td><a [routerLink]="['/agent', agent.id, 'view' ]">{{agent.id}}</a></td>
+                <td>{{agent.matricule}}</td>
+                <td>{{agent.nom}}</td>
+                <td>{{agent.prenoms}}</td>
+                <td>{{agent.dateNaiss | date:'medium'}}</td>
+                <td>{{agent.lieuNaiss}}</td>
+                <td>{{agent.contact}}</td>
+                <td>{{agent.email}}</td>
+                <td>{{agent.adresse}}</td>
+                <td>{{agent.datePriseServ | date:'medium'}}</td>
+                <td jhiTranslate="{{'primempdApp.Situationmatrimoniale.' + agent.situationMatrim}}">{{agent.situationMatrim}}</td>
+                <td>{{agent.nombreEnfts}}</td>
+                <td jhiTranslate="{{'primempdApp.Statut.' + agent.statut}}">{{agent.statut}}</td>
+                <td>
+                    <div *ngIf="agent.fonctionActuelle">
+                        <a [routerLink]="['../fonction', agent.fonctionActuelle?.id, 'view' ]" >{{agent.fonctionActuelle?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="agent.compteactuel">
+                        <a [routerLink]="['../compte', agent.compteactuel?.id, 'view' ]" >{{agent.compteactuel?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="agent.directionactuelle">
+                        <a [routerLink]="['../direction', agent.directionactuelle?.id, 'view' ]" >{{agent.directionactuelle?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="agent.gradeactuel">
+                        <a [routerLink]="['../grade', agent.gradeactuel?.id, 'view' ]" >{{agent.gradeactuel?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="agent.corpsactuel">
+                        <a [routerLink]="['../corps', agent.corpsactuel?.id, 'view' ]" >{{agent.corpsactuel?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/agent', agent.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/agent', agent.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'agent/'+ agent.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="agents && agents.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="banque">
+            <h2><span jhiTranslate="primempdApp.banque.detail.title">Banque</span> {{banque.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="primempdApp.banque.codeBanque">Code Banque</span></dt>
+                <dd>
+                    <span>{{banque.codeBanque}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.banque.nomBanque">Nom Banque</span></dt>
+                <dd>
+                    <span>{{banque.nomBanque}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.banque.siegeSocial">Siege Social</span></dt>
+                <dd>
+                    <span>{{banque.siegeSocial}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.banque.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{banque.telephone}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.banque.fax">Fax</span></dt>
+                <dd>
+                    <span>{{banque.fax}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.banque.email">Email</span></dt>
+                <dd>
+                    <span>{{banque.email}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/banque', banque.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="direction">
+            <h2><span jhiTranslate="primempdApp.direction.detail.title">Direction</span> {{direction.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="primempdApp.direction.sigle">Sigle</span></dt>
+                <dd>
+                    <span>{{direction.sigle}}</span>
+                </dd>
+                <dt><span jhiTranslate="primempdApp.direction.libelleDirection">Libelle Direction</span></dt>
+                <dd>
+                    <span>{{direction.libelleDirection}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/direction', direction.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

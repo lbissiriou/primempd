@@ -1,0 +1,140 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-agent-heading" jhiTranslate="primempdApp.agent.home.createOrEditLabel">Create or edit a Agent</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!agent.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="agent.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.matricule" for="field_matricule">Matricule</label>
+                    <input type="number" class="form-control" name="matricule" id="field_matricule"
+                        [(ngModel)]="agent.matricule" required/>
+                    <div [hidden]="!(editForm.controls.matricule?.dirty && editForm.controls.matricule?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.matricule?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.matricule?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                        [(ngModel)]="agent.nom" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.prenoms" for="field_prenoms">Prenoms</label>
+                    <input type="text" class="form-control" name="prenoms" id="field_prenoms"
+                        [(ngModel)]="agent.prenoms" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.dateNaiss" for="field_dateNaiss">Date Naiss</label>
+                    <div class="d-flex">
+                        <input id="field_dateNaiss" type="datetime-local" class="form-control" name="dateNaiss" [(ngModel)]="dateNaiss"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.lieuNaiss" for="field_lieuNaiss">Lieu Naiss</label>
+                    <input type="text" class="form-control" name="lieuNaiss" id="field_lieuNaiss"
+                        [(ngModel)]="agent.lieuNaiss" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.contact" for="field_contact">Contact</label>
+                    <input type="text" class="form-control" name="contact" id="field_contact"
+                        [(ngModel)]="agent.contact" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="agent.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.adresse" for="field_adresse">Adresse</label>
+                    <input type="text" class="form-control" name="adresse" id="field_adresse"
+                        [(ngModel)]="agent.adresse" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.datePriseServ" for="field_datePriseServ">Date Prise Serv</label>
+                    <div class="d-flex">
+                        <input id="field_datePriseServ" type="datetime-local" class="form-control" name="datePriseServ" [(ngModel)]="datePriseServ"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.situationMatrim" for="field_situationMatrim">Situation Matrim</label>
+                    <select class="form-control" name="situationMatrim" [(ngModel)]="agent.situationMatrim" id="field_situationMatrim" >
+                        <option value="MARIE">{{'primempdApp.Situationmatrimoniale.MARIE' | translate}}</option>
+                        <option value="CELIBATAIRE">{{'primempdApp.Situationmatrimoniale.CELIBATAIRE' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.nombreEnfts" for="field_nombreEnfts">Nombre Enfts</label>
+                    <input type="number" class="form-control" name="nombreEnfts" id="field_nombreEnfts"
+                        [(ngModel)]="agent.nombreEnfts" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.statut" for="field_statut">Statut</label>
+                    <select class="form-control" name="statut" [(ngModel)]="agent.statut" id="field_statut" >
+                        <option value="ACE">{{'primempdApp.Statut.ACE' | translate}}</option>
+                        <option value="APE">{{'primempdApp.Statut.APE' | translate}}</option>
+                        <option value="CDD">{{'primempdApp.Statut.CDD' | translate}}</option>
+                        <option value="OCCASIONNEL">{{'primempdApp.Statut.OCCASIONNEL' | translate}}</option>
+                        <option value="CONVENTIONNE">{{'primempdApp.Statut.CONVENTIONNE' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.fonctionActuelle" for="field_fonctionActuelle">Fonction Actuelle</label>
+                    <select class="form-control" id="field_fonctionActuelle" name="fonctionActuelle" [(ngModel)]="agent.fonctionActuelle">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="fonctionOption.id === agent.fonctionActuelle?.id ? agent.fonctionActuelle : fonctionOption" *ngFor="let fonctionOption of fonctionactuelles; trackBy: trackFonctionById">{{fonctionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.compteactuel" for="field_compteactuel">Compteactuel</label>
+                    <select class="form-control" id="field_compteactuel" name="compteactuel" [(ngModel)]="agent.compteactuel">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="compteOption.id === agent.compteactuel?.id ? agent.compteactuel : compteOption" *ngFor="let compteOption of compteactuels; trackBy: trackCompteById">{{compteOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.directionactuelle" for="field_directionactuelle">Directionactuelle</label>
+                    <select class="form-control" id="field_directionactuelle" name="directionactuelle" [(ngModel)]="agent.directionactuelle">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="directionOption.id === agent.directionactuelle?.id ? agent.directionactuelle : directionOption" *ngFor="let directionOption of directionactuelles; trackBy: trackDirectionById">{{directionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.gradeactuel" for="field_gradeactuel">Gradeactuel</label>
+                    <select class="form-control" id="field_gradeactuel" name="gradeactuel" [(ngModel)]="agent.gradeactuel">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="gradeOption.id === agent.gradeactuel?.id ? agent.gradeactuel : gradeOption" *ngFor="let gradeOption of gradeactuels; trackBy: trackGradeById">{{gradeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="primempdApp.agent.corpsactuel" for="field_corpsactuel">Corpsactuel</label>
+                    <select class="form-control" id="field_corpsactuel" name="corpsactuel" [(ngModel)]="agent.corpsactuel">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="corpsOption.id === agent.corpsactuel?.id ? agent.corpsactuel : corpsOption" *ngFor="let corpsOption of corpsactuels; trackBy: trackCorpsById">{{corpsOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
